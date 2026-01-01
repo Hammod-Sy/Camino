@@ -7,11 +7,11 @@ interface DestinationsMenuProps {
 }
 
 export default function DestinationsMenu({ destinations }: DestinationsMenuProps) {
-  const regions = Array.from(new Set(destinations.map((d) => d.region))).sort();
-  const countries = Array.from(new Set(destinations.map((d) => d.country))).sort();
+  const regions = Array.isArray(destinations) ? Array.from(new Set(destinations.map((d) => d.region))).sort() : [];
+  const countries = Array.isArray(destinations) ? Array.from(new Set(destinations.map((d) => d.country))).sort() : [];
 
   // Featured destination for preview
-  const featured = destinations[0];
+  const featured = Array.isArray(destinations) ? destinations[0] : undefined;
 
   return (
     <motion.div
@@ -50,8 +50,8 @@ export default function DestinationsMenu({ destinations }: DestinationsMenuProps
         <div>
           <h3 className="font-semibold text-camino-charcoal mb-4">Countries</h3>
           <ul className="space-y-2">
-            {countries.slice(0, 12).map((country) => {
-              const dest = destinations.find((d) => d.country === country);
+            {Array.isArray(countries) ? countries.slice(0, 12).map((country) => {
+              const dest = Array.isArray(destinations) ? destinations.find((d) => d.country === country) : null;
               if (!dest) return null;
               return (
                 <li key={country}>
@@ -63,7 +63,7 @@ export default function DestinationsMenu({ destinations }: DestinationsMenuProps
                   </Link>
                 </li>
               );
-            })}
+            }) : null}
           </ul>
         </div>
 

@@ -7,9 +7,9 @@ interface PhotoMosaicProps {
 
 export default function PhotoMosaic({ trip }: PhotoMosaicProps) {
   const [showModal, setShowModal] = useState(false);
-  const images = trip.images || [trip.heroImage];
+  const images = Array.isArray(trip.images) ? trip.images : [trip.heroImage];
   const mainImage = images[0];
-  const mosaicImages = images.slice(1, 5);
+  const mosaicImages = Array.isArray(images) ? images.slice(1, 5) : [];
 
   return (
     <>

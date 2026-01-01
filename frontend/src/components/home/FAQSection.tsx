@@ -8,7 +8,7 @@ export default function FAQSection() {
     queryFn: () => api.getFAQs(),
   });
 
-  const featuredFAQs = faqs?.slice(0, 4) || [];
+  const featuredFAQs = Array.isArray(faqs) ? faqs.slice(0, 4) : [];
 
   return (
     <section className="container mx-auto px-[6%] py-8 sm:py-16">

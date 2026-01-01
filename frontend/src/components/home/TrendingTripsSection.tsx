@@ -3,7 +3,7 @@ import { useTrips } from '../../hooks/useTrips';
 
 export default function TrendingTripsSection() {
   const { data: trips } = useTrips();
-  const trendingTrips = trips?.slice(0, 6) || [];
+  const trendingTrips = Array.isArray(trips) ? trips.slice(0, 6) : [];
 
   return (
     <section className="container mx-auto px-[6%] py-8 sm:py-16">

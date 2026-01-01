@@ -13,7 +13,7 @@ export default function TripFAQ({ tripSlug: _tripSlug }: TripFAQProps) {
   });
 
   const [openFAQ, setOpenFAQ] = useState<number | null>(null);
-  const tripFAQs = faqs?.slice(0, 5) || [];
+  const tripFAQs = Array.isArray(faqs) ? faqs.slice(0, 5) : [];
 
   return (
     <section className="mb-16">

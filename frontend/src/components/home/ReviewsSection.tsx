@@ -9,10 +9,10 @@ export default function ReviewsSection() {
   });
 
   const [currentIndex, setCurrentIndex] = useState(0);
-  const displayReviews = reviews?.slice(currentIndex, currentIndex + 3) || [];
+  const displayReviews = Array.isArray(reviews) ? reviews.slice(currentIndex, currentIndex + 3) : [];
 
   const nextReviews = () => {
-    if (reviews && currentIndex + 3 < reviews.length) {
+    if (Array.isArray(reviews) && currentIndex + 3 < reviews.length) {
       setCurrentIndex(currentIndex + 3);
     }
   };
@@ -73,7 +73,7 @@ export default function ReviewsSection() {
 
           <button
             onClick={nextReviews}
-            disabled={reviews ? currentIndex + 3 >= reviews.length : true}
+            disabled={Array.isArray(reviews) ? currentIndex + 3 >= reviews.length : true}
             className="p-1.5 sm:p-2 rounded-full bg-white hover:bg-gray-100 disabled:opacity-50 disabled:cursor-not-allowed transition-colors hidden sm:flex"
           >
             <svg className="w-5 h-5 sm:w-6 sm:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -105,7 +105,7 @@ export default function ReviewsSection() {
           </button>
           <button
             onClick={nextReviews}
-            disabled={reviews ? currentIndex + 3 >= reviews.length : true}
+            disabled={Array.isArray(reviews) ? currentIndex + 3 >= reviews.length : true}
             className="p-2 rounded-full bg-white hover:bg-gray-100 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
           >
             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">

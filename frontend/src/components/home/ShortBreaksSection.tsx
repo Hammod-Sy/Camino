@@ -3,7 +3,7 @@ import { useTrips } from '../../hooks/useTrips';
 
 export default function ShortBreaksSection() {
   const { data: trips } = useTrips({ duration: '3-5' });
-  const shortBreakTrips = trips?.slice(0, 6) || [];
+  const shortBreakTrips = Array.isArray(trips) ? trips.slice(0, 6) : [];
 
   return (
     <section className="container mx-auto px-[6%] py-8 sm:py-16">

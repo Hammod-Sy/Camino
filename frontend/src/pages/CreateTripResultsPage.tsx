@@ -3,7 +3,7 @@ import { useTrips } from '../hooks/useTrips';
 
 export default function CreateTripResultsPage() {
   const { data: trips } = useTrips();
-  const results = trips?.slice(0, 3) || [];
+  const results = Array.isArray(trips) ? trips.slice(0, 3) : [];
 
   return (
     <div className="container mx-auto px-[6%] py-8 sm:py-16 max-w-6xl">
