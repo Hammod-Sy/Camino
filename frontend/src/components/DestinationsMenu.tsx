@@ -1,0 +1,93 @@
+import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
+import type { Destination } from '../types';
+
+interface DestinationsMenuProps {
+  destinations: Destination[];
+}
+
+export default function DestinationsMenu({ destinations }: DestinationsMenuProps) {
+  const regions = Array.from(new Set(destinations.map((d) => d.region))).sort();
+  const countries = Array.from(new Set(destinations.map((d) => d.country))).sort();
+
+  // Featured destination for preview
+  const featured = destinations[0];
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 10 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: 10 }}
+      className="absolute top-full left-1/2 transform -translate-x-1/2 mt-2 w-[900px] bg-white rounded-lg shadow-xl border border-gray-100 p-6"
+    >
+      <div className="grid grid-cols-3 gap-6">
+        {/* Regions */}
+        <div>
+          <h3 className="font-semibold text-camino-charcoal mb-4">Regions</h3>
+          <ul className="space-y-2">
+            <li>
+              <Link
+                to="/destinations"
+                className="text-sm text-gray-700 hover:text-camino-orange transition-colors"
+              >
+                Top destinations
+              </Link>
+            </li>
+            {regions.map((region) => (
+              <li key={region}>
+                <Link
+                  to={`/destinations?region=${encodeURIComponent(region)}`}
+                  className="text-sm text-gray-700 hover:text-camino-orange transition-colors"
+                >
+                  {region}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        {/* Countries */}
+        <div>
+          <h3 className="font-semibold text-camino-charcoal mb-4">Countries</h3>
+          <ul className="space-y-2">
+            {countries.slice(0, 12).map((country) => {
+              const dest = destinations.find((d) => d.country === country);
+              if (!dest) return null;
+              return (
+                <li key={country}>
+                  <Link
+                    to={`/destinations/${dest.slug}`}
+                    className="text-sm text-gray-700 hover:text-camino-orange transition-colors"
+                  >
+                    {country}
+                  </Link>
+                </li>
+              );
+            })}
+          </ul>
+        </div>
+
+        {/* Featured destination preview */}
+        {featured && (
+          <div>
+            <Link to={`/destinations/${featured.slug}`}>
+              <div className="rounded-lg overflow-hidden aspect-[4/3] relative group cursor-pointer">
+                <img
+                  src={featured.imageUrl}
+                  alt={featured.name}
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+                <div className="absolute bottom-4 left-4 text-white">
+                  <h4 className="font-semibold">{featured.name}</h4>
+                  <p className="text-sm text-white/90">{featured.region}</p>
+                </div>
+              </div>
+            </Link>
+          </div>
+        )}
+      </div>
+    </motion.div>
+  );
+}
+
