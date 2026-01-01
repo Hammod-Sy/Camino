@@ -114,21 +114,21 @@ export const handlers = [
 
   // Newsletter
   http.post('/api/newsletter', async ({ request }) => {
-    const body = await request.json() as { email: string };
+    await request.json() as { email: string };
     // Mock success
     return HttpResponse.json({ success: true });
   }),
 
   // Lead
   http.post('/api/lead', async ({ request }) => {
-    const body = await request.json() as { email: string; name?: string; message?: string };
+    await request.json() as { email: string; name?: string; message?: string };
     // Mock success
     return HttpResponse.json({ success: true });
   }),
 
   // Drafts
   http.post('/api/drafts', async ({ request }) => {
-    const body = await request.json();
+    const body = await request.json() as Record<string, unknown>;
     const draft = {
       id: String(Date.now()),
       ...body,

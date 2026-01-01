@@ -6,7 +6,7 @@ interface TripFAQProps {
   tripSlug: string;
 }
 
-export default function TripFAQ({ tripSlug }: TripFAQProps) {
+export default function TripFAQ({ tripSlug: _tripSlug }: TripFAQProps) {
   const { data: faqs } = useQuery({
     queryKey: ['faqs'],
     queryFn: () => api.getFAQs(),

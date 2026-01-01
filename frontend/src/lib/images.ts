@@ -64,8 +64,8 @@ export const getMultipleImages = (count: number, seed?: string): string[] => {
 // Keep Unsplash functions for backward compatibility, but prefer local images
 export const getUnsplashImage = (
   keywords: string,
-  width: number = 1600,
-  height: number = 900
+  _width: number = 1600,
+  _height: number = 900
 ): string => {
   return getImageByKeyword(keywords);
 };

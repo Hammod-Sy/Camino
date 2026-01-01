@@ -7,10 +7,7 @@ import type {
   Review,
 } from '../types';
 import {
-  getCollectionImage,
   getDestinationImage,
-  getTripImage,
-  getUnsplashImage,
   getImageByIndex,
   getMultipleImages,
   getImageByKeyword,
@@ -113,7 +110,7 @@ export const mockDestinations: Destination[] = [
     region: 'UK & Ireland',
     country: 'United Kingdom',
     description: 'Dramatic highlands and ancient castles',
-    imageUrl: getDestinationImage('scotland', 1200, 800),
+    imageUrl: getDestinationImage('scotland'),
     coordinates: { lat: 56.4907, lng: -4.2026 },
   },
   {
@@ -123,7 +120,7 @@ export const mockDestinations: Destination[] = [
     region: 'Western Europe',
     country: 'France',
     description: 'Art, cuisine, and romance',
-    imageUrl: getDestinationImage('france', 1200, 800),
+    imageUrl: getDestinationImage('france'),
     coordinates: { lat: 46.6034, lng: 1.8883 },
   },
   {
@@ -133,7 +130,7 @@ export const mockDestinations: Destination[] = [
     region: 'Southern Europe',
     country: 'Italy',
     description: 'Historic cities and Mediterranean coast',
-    imageUrl: getDestinationImage('italy', 1200, 800),
+    imageUrl: getDestinationImage('italy'),
     coordinates: { lat: 41.8719, lng: 12.5674 },
   },
   {
@@ -143,7 +140,7 @@ export const mockDestinations: Destination[] = [
     region: 'Southern Europe',
     country: 'Spain',
     description: 'Vibrant culture and stunning coastlines',
-    imageUrl: getDestinationImage('spain', 1200, 800),
+    imageUrl: getDestinationImage('spain'),
     coordinates: { lat: 40.4637, lng: -3.7492 },
   },
   {
@@ -153,7 +150,7 @@ export const mockDestinations: Destination[] = [
     region: 'Northern Europe',
     country: 'Switzerland',
     description: 'Alpine peaks and pristine lakes',
-    imageUrl: getDestinationImage('switzerland', 1200, 800),
+    imageUrl: getDestinationImage('switzerland'),
     coordinates: { lat: 46.8182, lng: 8.2275 },
   },
   {
@@ -163,7 +160,7 @@ export const mockDestinations: Destination[] = [
     region: 'Northern Europe',
     country: 'Austria',
     description: 'Baroque architecture and mountain vistas',
-    imageUrl: getDestinationImage('austria', 1200, 800),
+    imageUrl: getDestinationImage('austria'),
     coordinates: { lat: 47.5162, lng: 14.5501 },
   },
   {
@@ -173,7 +170,7 @@ export const mockDestinations: Destination[] = [
     region: 'UK & Ireland',
     country: 'United Kingdom',
     description: 'Historic cities and rolling countryside',
-    imageUrl: getDestinationImage('england', 1200, 800),
+    imageUrl: getDestinationImage('england'),
     coordinates: { lat: 52.3555, lng: -1.1743 },
   },
   {
@@ -183,7 +180,7 @@ export const mockDestinations: Destination[] = [
     region: 'Northern Europe',
     country: 'Germany',
     description: 'Medieval towns and modern innovation',
-    imageUrl: getDestinationImage('germany', 1200, 800),
+    imageUrl: getDestinationImage('germany'),
     coordinates: { lat: 51.1657, lng: 10.4515 },
   },
   {
@@ -193,7 +190,7 @@ export const mockDestinations: Destination[] = [
     region: 'Southern Europe',
     country: 'Portugal',
     description: 'Golden beaches and historic architecture',
-    imageUrl: getDestinationImage('portugal', 1200, 800),
+    imageUrl: getDestinationImage('portugal'),
     coordinates: { lat: 39.3999, lng: -8.2245 },
   },
   {
@@ -203,7 +200,7 @@ export const mockDestinations: Destination[] = [
     region: 'UK & Ireland',
     country: 'Ireland',
     description: 'Emerald landscapes and warm hospitality',
-    imageUrl: getDestinationImage('ireland', 1200, 800),
+    imageUrl: getDestinationImage('ireland'),
     coordinates: { lat: 53.4129, lng: -8.2439 },
   },
   {
@@ -213,7 +210,7 @@ export const mockDestinations: Destination[] = [
     region: 'Northern Europe',
     country: 'Belgium',
     description: 'Medieval cities and world-class cuisine',
-    imageUrl: getDestinationImage('belgium', 1200, 800),
+    imageUrl: getDestinationImage('belgium'),
     coordinates: { lat: 50.5039, lng: 4.4699 },
   },
   {
@@ -223,7 +220,7 @@ export const mockDestinations: Destination[] = [
     region: 'Northern Europe',
     country: 'Netherlands',
     description: 'Canals, tulips, and cycling culture',
-    imageUrl: getDestinationImage('netherlands', 1200, 800),
+    imageUrl: getDestinationImage('netherlands'),
     coordinates: { lat: 52.1326, lng: 5.2913 },
   },
   {
@@ -233,7 +230,7 @@ export const mockDestinations: Destination[] = [
     region: 'Northern Europe',
     country: 'Denmark',
     description: 'Scandinavian design and coastal charm',
-    imageUrl: getDestinationImage('denmark', 1200, 800),
+    imageUrl: getDestinationImage('denmark'),
     coordinates: { lat: 56.2639, lng: 9.5018 },
   },
   {
@@ -243,7 +240,7 @@ export const mockDestinations: Destination[] = [
     region: 'Northern Europe',
     country: 'Sweden',
     description: 'Arctic landscapes and modern cities',
-    imageUrl: getDestinationImage('sweden', 1200, 800),
+    imageUrl: getDestinationImage('sweden'),
     coordinates: { lat: 60.1282, lng: 18.6435 },
   },
   {
@@ -253,7 +250,7 @@ export const mockDestinations: Destination[] = [
     region: 'Northern Europe',
     country: 'Norway',
     description: 'Fjords, mountains, and northern lights',
-    imageUrl: getDestinationImage('norway', 1200, 800),
+    imageUrl: getDestinationImage('norway'),
     coordinates: { lat: 60.472, lng: 8.4689 },
   },
   {
@@ -263,7 +260,7 @@ export const mockDestinations: Destination[] = [
     region: 'Eastern Europe',
     country: 'Poland',
     description: 'Medieval architecture and vibrant culture',
-    imageUrl: getDestinationImage('poland', 1200, 800),
+    imageUrl: getDestinationImage('poland'),
     coordinates: { lat: 51.9194, lng: 19.1451 },
   },
   {
@@ -273,7 +270,7 @@ export const mockDestinations: Destination[] = [
     region: 'Eastern Europe',
     country: 'Czech Republic',
     description: 'Bohemian cities and historic charm',
-    imageUrl: getDestinationImage('prague,czech', 1200, 800),
+    imageUrl: getDestinationImage('prague,czech'),
     coordinates: { lat: 49.8175, lng: 15.473 },
   },
   {
@@ -283,7 +280,7 @@ export const mockDestinations: Destination[] = [
     region: 'Southern Europe',
     country: 'Greece',
     description: 'Ancient ruins and island paradise',
-    imageUrl: getDestinationImage('greece', 1200, 800),
+    imageUrl: getDestinationImage('greece'),
     coordinates: { lat: 39.0742, lng: 21.8243 },
   },
   {
@@ -293,7 +290,7 @@ export const mockDestinations: Destination[] = [
     region: 'Southern Europe',
     country: 'Croatia',
     description: 'Adriatic coast and historic walled cities',
-    imageUrl: getDestinationImage('croatia', 1200, 800),
+    imageUrl: getDestinationImage('croatia'),
     coordinates: { lat: 45.1, lng: 15.2 },
   },
   {
@@ -303,7 +300,7 @@ export const mockDestinations: Destination[] = [
     region: 'Southern Europe',
     country: 'Slovenia',
     description: 'Alpine lakes and medieval towns',
-    imageUrl: getDestinationImage('slovenia', 1200, 800),
+    imageUrl: getDestinationImage('slovenia'),
     coordinates: { lat: 46.1512, lng: 14.9955 },
   },
   {
@@ -313,7 +310,7 @@ export const mockDestinations: Destination[] = [
     region: 'Northern Europe',
     country: 'Finland',
     description: 'Lakes, saunas, and midnight sun',
-    imageUrl: getDestinationImage('finland', 1200, 800),
+    imageUrl: getDestinationImage('finland'),
     coordinates: { lat: 61.9241, lng: 25.7482 },
   },
   {
@@ -323,7 +320,7 @@ export const mockDestinations: Destination[] = [
     region: 'Northern Europe',
     country: 'Iceland',
     description: 'Volcanoes, geysers, and dramatic landscapes',
-    imageUrl: getDestinationImage('iceland', 1200, 800),
+    imageUrl: getDestinationImage('iceland'),
     coordinates: { lat: 64.9631, lng: -19.0208 },
   },
   {
@@ -333,7 +330,7 @@ export const mockDestinations: Destination[] = [
     region: 'UK & Ireland',
     country: 'United Kingdom',
     description: 'Historic capital with modern energy',
-    imageUrl: getDestinationImage('london', 1200, 800),
+    imageUrl: getDestinationImage('london'),
     coordinates: { lat: 51.5074, lng: -0.1278 },
   },
   {
@@ -343,7 +340,7 @@ export const mockDestinations: Destination[] = [
     region: 'Western Europe',
     country: 'France',
     description: 'City of light and romance',
-    imageUrl: getDestinationImage('paris', 1200, 800),
+    imageUrl: getDestinationImage('paris'),
     coordinates: { lat: 48.8566, lng: 2.3522 },
   },
   {
@@ -353,7 +350,7 @@ export const mockDestinations: Destination[] = [
     region: 'Southern Europe',
     country: 'Italy',
     description: 'Eternal city of history and art',
-    imageUrl: getDestinationImage('rome', 1200, 800),
+    imageUrl: getDestinationImage('rome'),
     coordinates: { lat: 41.9028, lng: 12.4964 },
   },
 ];
@@ -887,7 +884,7 @@ const moreFAQQuestions = [
   { q: 'How can I stay updated?', a: 'Sign up for our newsletter, follow us on social media, or check our journal for the latest updates.', cat: 'General' },
 ];
 
-moreFAQQuestions.forEach((faq, idx) => {
+moreFAQQuestions.forEach((faq) => {
   mockFAQs.push({
     id: String(mockFAQs.length + 1),
     question: faq.q,
